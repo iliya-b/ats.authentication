@@ -5,7 +5,7 @@ chardet==2.3.0
 cliff==2.4.0
 cmd2==0.6.9
 colorlog==2.10.0
-ecdsa==0.13
+ecdsa==0.13.3
 future==0.16.0
 jsonschema==2.5.1
 multidict==2.1.4
