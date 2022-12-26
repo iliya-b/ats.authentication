@@ -76,7 +76,7 @@ class ATSAuthApp(web.Application):
         auth_payload = {
             'auth': {
                 'identity':{
-                    'methods':['password']
+                    'methods':['password'],
                     'password':{
                         'user':{
                             'domain':{'id':'Default'},
