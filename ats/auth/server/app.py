@@ -79,18 +79,10 @@ class ATSAuthApp(web.Application):
                     'methods':['password'],
                     'password':{
                         'user':{
-                            'domain':{'id':'Default'},
+                            'domain':{'name':'Default'},
                             'name':'aic-' + username,
                             'password': password
                         }
-                    }
-                },
-                "scope": {
-                    "project": {
-                        "domain": {
-                            "id": "Default"
-                        },
-                        "name": "aic"
                     }
                 }
             }
