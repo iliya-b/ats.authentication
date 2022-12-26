@@ -80,7 +80,7 @@ class ATSAuthApp(web.Application):
                 },
                 'password':{
                     'user':{
-                        'domain':{'id':'default'},
+                        'domain':{'id':'Default'},
                         'name':'aic-' + username,
                         'password': password
                     }
@@ -88,7 +88,7 @@ class ATSAuthApp(web.Application):
                 "scope": {
                     "project": {
                         "domain": {
-                            "id": "default"
+                            "id": "Default"
                         },
                         "name": "aic"
                     }
@@ -107,7 +107,7 @@ class ATSAuthApp(web.Application):
         js = await r.json()
 
         if r.status != HTTPStatus.OK:
-            print(str(r.json()), str(r))
+            print(str(await r.text()), str(r))
             # XXX what about status codes != 401 ??
             raise web.HTTPUnauthorized
 
