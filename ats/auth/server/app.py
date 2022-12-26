@@ -107,6 +107,7 @@ class ATSAuthApp(web.Application):
         js = await r.json()
 
         if r.status != HTTPStatus.OK:
+            print(str(r.json()), str(r))
             # XXX what about status codes != 401 ??
             raise web.HTTPUnauthorized
 
