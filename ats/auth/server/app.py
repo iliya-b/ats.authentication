@@ -75,10 +75,23 @@ class ATSAuthApp(web.Application):
 
         auth_payload = {
             'auth': {
-                'tenantName': os_tenant_name,
-                'passwordCredentials': {
-                    'username': 'aic-' + username,
-                    'password': password
+                'identity':{
+                    'methods':['password']
+                },
+                'password':{
+                    'user':{
+                        'domain':{'id':'default'},
+                        'name':'aic-' + username,
+                        'password': password
+                    }
+                },
+                "scope": {
+                    "project": {
+                        "domain": {
+                            "id": "default"
+                        },
+                        "name": "aic"
+                    }
                 }
             }
         }
