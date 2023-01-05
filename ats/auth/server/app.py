@@ -75,10 +75,15 @@ class ATSAuthApp(web.Application):
 
         auth_payload = {
             'auth': {
-                'tenantName': os_tenant_name,
-                'passwordCredentials': {
-                    'username': 'aic-' + username,
-                    'password': password
+                'identity':{
+                    'methods':['password'],
+                    'password':{
+                        'user':{
+                            'domain':{'name':'Default'},
+                            'name':'aic-' + username,
+                            'password': password
+                        }
+                    }
                 }
             }
         }
@@ -93,7 +98,8 @@ class ATSAuthApp(web.Application):
 
         js = await r.json()
 
-        if r.status != HTTPStatus.OK:
+        if r.status != 201:
+            print(str(await r.text()), str(r))
             # XXX what about status codes != 401 ??
             raise web.HTTPUnauthorized
 
